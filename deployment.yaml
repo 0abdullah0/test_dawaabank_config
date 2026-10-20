@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dawaanbank-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dawaanbank-app
+  template:
+    metadata:
+      labels:
+        app: dawaanbank-app
+    spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            app: aa-app
+      containers:
+      - name: app
+        image: 0abdulah0/dawaabank
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9091
+        envFrom:
+        - configMapRef:
+            name: dawaabank-config
+        - secretRef:
+            name: dawaabank-secret
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 9091
+          initialDelaySeconds: 20
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 9091
+          initialDelaySeconds: 40
+          periodSeconds: 10
