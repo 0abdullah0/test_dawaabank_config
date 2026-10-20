@@ -21,8 +21,8 @@ spec:
             app: dawaanbank-app
       containers:
       - name: app
-        image: 0abdulah0/dawaabank
-        imagePullPolicy: Always
+        image: 0abdulah0/dawaabank:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9091
         envFrom:
