@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dawaabank-config
+data:
+  DATABASE_URL: "jdbc:postgresql://205.209.121.172:6432/pos_test?prepareThreshold=0"
+  CACHE_HOST: "205.209.121.172"
+  CACHE_PORT: "6379"
+  LOGGER_URL: "http://localhost:3100"
+  WASFATY_BASE_URL: "https://integration.wasfaty.sa:8077"
+  SYNC_SERVICE_URL: "http://205.209.121.172:8080"
