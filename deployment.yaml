@@ -18,7 +18,7 @@ spec:
         whenUnsatisfiable: ScheduleAnyway
         labelSelector:
           matchLabels:
-            app: aa-app
+            app: dawaanbank-app
       containers:
       - name: app
         image: 0abdulah0/dawaabank
