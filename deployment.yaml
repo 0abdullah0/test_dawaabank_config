@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dawaanbank-app
+  name: dawaabank-app
 spec:
   replicas: 1
   strategy:
@@ -10,11 +10,11 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: dawaanbank-app
+      app: dawaabank-app
   template:
     metadata:
       labels:
-        app: dawaanbank-app
+        app: dawaabank-app
     spec:
       topologySpreadConstraints:
       - maxSkew: 1
@@ -22,7 +22,7 @@ spec:
         whenUnsatisfiable: ScheduleAnyway
         labelSelector:
           matchLabels:
-            app: dawaanbank-app
+            app: dawaabank-app
       containers:
       - name: app
         image: 0abdulah0/dawaabank:latest
