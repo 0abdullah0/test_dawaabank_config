@@ -4,7 +4,6 @@ metadata:
   name: dawaabank-ingress-excel
   annotations:
     nginx.ingress.kubernetes.io/configuration-snippet: |
-        proxy_buffering off;
         proxy_request_buffering off;
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
