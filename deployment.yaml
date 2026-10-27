@@ -23,6 +23,8 @@ spec:
         labelSelector:
           matchLabels:
             app: dawaabank-app
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: app
         image: 0abdulah0/dawaabank:latest
