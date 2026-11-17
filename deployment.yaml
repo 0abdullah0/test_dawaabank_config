@@ -50,3 +50,10 @@ spec:
           initialDelaySeconds: 40
           periodSeconds: 10
           failureThreshold: 30
+        startupProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 9091
+          failureThreshold: 60  # 60 * 10 = 600 seconds startup window
+          periodSeconds: 10
+          timeoutSeconds: 3
